@@ -88,6 +88,10 @@ describe 'foreman::config::passenger' do
           http_dir = '/etc/apache2'
         end
 
+        it 'should include apache with mod_ssl' do
+          should contain_class('apache::mod::ssl')
+        end
+
         it 'should contain the docroot' do
           should contain_file("#{params[:app_root]}/public")
         end

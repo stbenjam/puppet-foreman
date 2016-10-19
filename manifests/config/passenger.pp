@@ -166,6 +166,8 @@ class foreman::config::passenger(
     }
 
     if $ssl {
+      include ::apache:mod::ssl
+
       $https_prestart = $prestart ? {
         true  => "https://${servername}:${server_ssl_port}",
         false => undef,
