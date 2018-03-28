@@ -5,6 +5,8 @@ Puppet::Type.newtype(:foreman_smartproxy) do
 
   ensurable
 
+  autorequire('apache::service')
+
   newparam(:name, :namevar => true) do
     desc 'The name of the smartproxy.'
   end
